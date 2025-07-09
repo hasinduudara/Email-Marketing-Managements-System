@@ -11,4 +11,5 @@ module lk.ijse.groupproject.emms {
     exports lk.ijse.groupproject.emms;
     opens lk.ijse.groupproject.emms.controller to javafx.fxml;
     exports lk.ijse.groupproject.emms.controller;
+    opens lk.ijse.groupproject.emms.dto.tm to javafx.base;
 }
