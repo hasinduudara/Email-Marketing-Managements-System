@@ -7,27 +7,71 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserModel {
+    private static final Logger logger = Logger.getLogger(UserModel.class.getName());
+
+    public static List<UserDTO> getAllUsers() throws SQLException {
+        List<UserDTO> users = new ArrayList<>();
+        String sql = "SELECT * FROM users";
+
+        try (Connection conn = DBConnection.getInstance().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                UserDTO user = new UserDTO();
+                user.setId(rs.getString("id"));
+                user.setName(rs.getString("name"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error retrieving users", e);
+            throw e;
+        }
+        return users;
+    }
 
     public static boolean saveUser(UserDTO user) throws SQLException {
         String sql = "INSERT INTO users (name, username, email, password) VALUES (?, ?, ?, ?)";
-        Connection conn = DBConnection.getInstance().getConnection();
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, user.getName());
-        ps.setString(2, user.getUsername());
-        ps.setString(3, user.getEmail());
-        ps.setString(4, user.getPassword()); // Should be hashed if using security
-        return ps.executeUpdate() > 0;
+
+        try (Connection conn = DBConnection.getInstance().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getUsername());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getPassword());
+
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error saving user", e);
+            throw e;
+        }
     }
 
     public static boolean validateUser(String username, String password) throws SQLException {
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-        Connection conn = DBConnection.getInstance().getConnection();
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, username);
-        ps.setString(2, password); // Match hash if hashed
-        ResultSet rs = ps.executeQuery();
-        return rs.next();
+
+        try (Connection conn = DBConnection.getInstance().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, username);
+            ps.setString(2, password);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error validating user", e);
+            throw e;
+        }
     }
 }

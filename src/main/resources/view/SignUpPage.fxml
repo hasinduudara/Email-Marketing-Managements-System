@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.SignUpPageController">
    <children>
       <AnchorPane fx:id="signupPage" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;">
@@ -53,21 +52,33 @@
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
-                  <HBox prefHeight="40.0" prefWidth="459.0" spacing="10">
-                     <VBox.margin>
-                        <Insets left="105.0" right="100.0" />
-                     </VBox.margin>
-                  </HBox>
                   <Button fx:id="btnSignUp" maxWidth="300" onAction="#btnSignUpOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Sign Up" textFill="#fff6f6">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <Label text="or" />
+                  <HBox prefHeight="40.0" prefWidth="459.0" spacing="10">
+                     <VBox.margin>
+                        <Insets left="105.0" right="100.0" />
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="btnGoogleSignup" mnemonicParsing="false" onAction="#handleGoogleSignup" prefHeight="35.0" prefWidth="135.0" style="-fx-background-color: white; -fx-border-color: black;" text="Sign up with Google">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="60.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
                   <Label onMouseClicked="#goToLogin" text="Already have an account? Login" textFill="#6969a9">
                      <font>
                         <Font name="Comic Sans MS Bold" size="18.0" />
                      </font>
                   </Label>
+                  <Label fx:id="lblMessage" prefHeight="18.0" prefWidth="197.0" />
                </children>
             </VBox>
          </children>
