@@ -10,11 +10,8 @@ import lk.ijse.groupproject.emms.dto.EmailDTO;
 import lk.ijse.groupproject.emms.dto.tm.EmailTM;
 import lk.ijse.groupproject.emms.model.EmailModel;
 
-
 import java.net.URL;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class EmailController implements Initializable {
 
@@ -78,6 +75,9 @@ public class EmailController implements Initializable {
         loadEmailData();
         setupTableSelectionListener();
 
+        idColumn.setSortType(TableColumn.SortType.ASCENDING);
+        emailTableView.getSortOrder().add(idColumn);
+
         updateButton.setDisable(true);
     }
 
@@ -119,6 +119,8 @@ public class EmailController implements Initializable {
         try {
             List<EmailDTO> emailDTOList = EmailModel.getAllEmails();
 
+            emailDTOList.sort(Comparator.comparingInt(EmailDTO::getId));
+
             if (emailObservableList == null) {
                 emailObservableList = FXCollections.observableArrayList();
             } else {
@@ -138,7 +140,6 @@ public class EmailController implements Initializable {
             }
 
             emailTableView.setItems(emailObservableList);
-
             emailTableView.refresh();
 
         } catch (Exception e) {
@@ -198,30 +199,9 @@ public class EmailController implements Initializable {
 
                 EmailDTO emailDTO = new EmailDTO(selectedEmail.getId(), email, clientName, gender, age, job);
 
-                boolean updateResult = EmailModel.updateEmail(emailDTO);
-                //System.out.println("Update result: " + updateResult);
-
-                if (updateResult) {
+                if (EmailModel.updateEmail(emailDTO)) {
                     showAlert(Alert.AlertType.INFORMATION, "Success", "Email updated successfully!");
-
-                  //  System.out.println("Data before reload:");
-                    List<EmailDTO> beforeReload = EmailModel.getAllEmails();
-                    for (EmailDTO dto : beforeReload) {
-                        if (dto.getId() == selectedEmail.getId()) {
-                           // System.out.println("Found updated record: " + dto.getEmail() + " - " + dto.getClientName());
-                        }
-                    }
-
                     loadEmailData();
-
-
-                   // System.out.println("Observable list after reload:");
-                    for (EmailTM tm : emailObservableList) {
-                        if (tm.getId() == selectedEmail.getId()) {
-                           // System.out.println("Found in observable list: " + tm.getEmail() + " - " + tm.getClientName());
-                        }
-                    }
-
                     handleClear();
                 } else {
                     showAlert(Alert.AlertType.ERROR, "Error", "Failed to update email!");
@@ -262,7 +242,7 @@ public class EmailController implements Initializable {
 
     @FXML
     private void handleSendMail() {
-
+        // Implementation placeholder
     }
 
     @FXML
@@ -275,7 +255,6 @@ public class EmailController implements Initializable {
 
         selectedEmail = null;
         updateButton.setDisable(true);
-
         emailTableView.getSelectionModel().clearSelection();
     }
 
@@ -329,3 +308,4 @@ public class EmailController implements Initializable {
         alert.showAndWait();
     }
 }
+
