@@ -68,7 +68,7 @@
             </HBox>
 
             <!-- Result Area -->
-            <ListView fx:id="lstFilteredEmails" prefHeight="150" prefWidth="600" style="-fx-background-color: #a8a8a8; -fx-text-fill: white;" />
+            <ListView fx:id="lstFilteredEmails" prefHeight="150" prefWidth="600" style="-fx-background-color: #e8e8e8; -fx-text-fill: white;" />
         </children>
         <padding><Insets bottom="20" top="20" /></padding>
     </VBox>
