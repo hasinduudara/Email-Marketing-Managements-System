@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DBConnection {
     private static DBConnection dbConnection;
     private final Connection connection;
-    private final String url = "jdbc:mysql://localhost:3306/bookshop";
+    private final String url = "jdbc:mysql://localhost:3306/emms_db";
     private final String user = "root";
     private final String password = "Ijse@1234";
 
