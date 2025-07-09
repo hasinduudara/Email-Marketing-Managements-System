@@ -22,24 +22,35 @@
             <!-- Filters -->
             <HBox spacing="20">
                 <children>
+
+                    <VBox spacing="5">
+                        <Label style="-fx-text-fill: #000000;" text="Name" />
+                        <TextField fx:id="txtName" prefWidth="150" promptText="e.g., Hasindu" />
+                    </VBox>
+
                     <VBox spacing="5">
                         <Label style="-fx-text-fill: #000000;" text="Gender" />
                         <ComboBox fx:id="cmbGender" prefWidth="150" promptText="Select Gender" />
                     </VBox>
+
                     <VBox spacing="5">
                         <Label style="-fx-text-fill: #000000;" text="Min Age" />
                         <TextField fx:id="txtMinAge" prefWidth="100" promptText="e.g., 18" />
                     </VBox>
+
                     <VBox spacing="5">
                         <Label style="-fx-text-fill: #000000;" text="Max Age" />
                         <TextField fx:id="txtMaxAge" prefWidth="100" promptText="e.g., 35" />
                     </VBox>
+
                     <VBox spacing="5">
                         <Label style="-fx-text-fill: #000000;" text="Job" />
                         <TextField fx:id="txtJob" prefWidth="150" promptText="e.g., Engineer" />
                     </VBox>
+
                 </children>
             </HBox>
+
 
             <!-- Email Form -->
             <VBox spacing="10">
