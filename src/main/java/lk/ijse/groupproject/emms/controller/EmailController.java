@@ -242,7 +242,7 @@ public class EmailController implements Initializable {
 
     @FXML
     private void handleSendMail() {
-        // Implementation placeholder
+       // ......
     }
 
     @FXML
