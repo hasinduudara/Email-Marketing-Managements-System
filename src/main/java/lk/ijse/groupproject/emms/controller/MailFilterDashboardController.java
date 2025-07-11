@@ -16,24 +16,34 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.sql.*;
-import java.util.List;
-import java.util.Properties;
-import java.util.ArrayList;
+import java.util.*;
 
 public class MailFilterDashboardController {
 
-    @FXML private AnchorPane filterMailDashboard;
-    @FXML private ComboBox<String> cmbGender;
-    @FXML private TextField txtMinAge;
-    @FXML private TextField txtMaxAge;
-    @FXML private TextField txtJob;
-    @FXML private TextField txtTitle;
-    @FXML private TextArea txtBody;
-    @FXML private TextField txtName;
-    @FXML private Button btnFilter;
-    @FXML private Button btnSend;
-    @FXML private Button btnClear;
-    @FXML private ListView<EmailModel> lstFilteredEmails;
+    @FXML
+    private AnchorPane filterMailDashboard;
+    @FXML
+    private ComboBox<String> cmbGender;
+    @FXML
+    private TextField txtMinAge;
+    @FXML
+    private TextField txtMaxAge;
+    @FXML
+    private TextField txtJob;
+    @FXML
+    private TextField txtTitle;
+    @FXML
+    private TextArea txtBody;
+    @FXML
+    private TextField txtName;
+    @FXML
+    private Button btnFilter;
+    @FXML
+    private Button btnSend;
+    @FXML
+    private Button btnClear;
+    @FXML
+    private ListView<EmailModel> lstFilteredEmails;
 
     private ObservableList<EmailModel> filteredList = FXCollections.observableArrayList();
 
@@ -169,7 +179,7 @@ public class MailFilterDashboardController {
 
     private void sendEmail(String toEmail, String subject, String body) {
         final String username = "hasiduudara@gmail.com";
-        final String password = "wngszetdusifxysl"; // wngs zetd usif xysl
+        final String password = "kkseofkpavpavezu"; // kkse ofkp avpa vezu
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -197,6 +207,7 @@ public class MailFilterDashboardController {
         }
     }
 
+    @FXML
     public void btnClearOnAction(ActionEvent actionEvent) {
         txtName.clear();
         cmbGender.getSelectionModel().clearSelection();
