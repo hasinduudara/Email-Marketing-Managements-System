@@ -4,7 +4,16 @@ module lk.ijse.groupproject.emms {
     requires java.sql;
     requires lombok;
     requires java.mail;
-    requires itextpdf;
+    requires com.jfoenix;
+    requires com.google.api.client;
+    requires com.google.api.client.json.gson;
+    requires google.api.client;
+    requires com.google.api.client.auth;
+    requires com.google.api.services.oauth2;
+    requires java.desktop;
+
+    requires com.google.api.client.extensions.jetty.auth;
+    requires com.google.api.client.extensions.java6.auth;
 
 
     opens lk.ijse.groupproject.emms to javafx.fxml;

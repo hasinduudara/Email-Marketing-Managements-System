@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.OTPFormController">
+   <children>
+      <AnchorPane fx:id="whiteap" layoutX="47.0" layoutY="18.0" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+         <children>
+            <ImageView fx:id="imgBack" fitHeight="58.0" fitWidth="58.0" layoutX="57.0" layoutY="58.0" onMouseClicked="#imgBackOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../ORM/ORMCoursework/CalmMinds/src/main/resources/images/backImg.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="227.0" layoutY="68.0" opacity="0.6" style="-fx-text-fill: #2B2B2B; -fx-font-size: 25px;" text="Enter the OTP sent your email address">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <TextField fx:id="txtOtp1" layoutX="217.0" layoutY="177.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="70.0" style="-fx-font-size: 24px; -fx-alignment: center; -fx-background-radius: 10;" />
+            <TextField fx:id="txtOtp2" layoutX="338.0" layoutY="177.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="70.0" style="-fx-font-size: 24px; -fx-alignment: center; -fx-background-radius: 10;" />
+            <TextField fx:id="txtOtp3" layoutX="461.0" layoutY="177.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="70.0" style="-fx-font-size: 24px; -fx-alignment: center; -fx-background-radius: 10;" />
+            <TextField fx:id="txtOtp4" layoutX="576.0" layoutY="177.0" onKeyReleased="#submitOtpOnEnter" prefHeight="60.0" prefWidth="70.0" style="-fx-font-size: 24px; -fx-alignment: center; -fx-background-radius: 10;" />
+            <Label fx:id="lblResendTimer" layoutX="338.0" layoutY="257.0" style="-fx-font-size: 16px; -fx-text-fill: red;" text="Try again in 2:00" />
+            <Label fx:id="lblResend" layoutX="470.0" layoutY="257.0" onMouseClicked="#resendOtp" style="-fx-font-size: 16px;" text="Resend">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnVerify" layoutX="230.0" layoutY="412.0" onAction="#btnVerifyOnAction" prefHeight="46.0" prefWidth="389.0" style="-fx-background-color: black; -fx-border-color: black;" text="Verify" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Label fx:id="lblError" layoutX="432.0" layoutY="481.0" prefHeight="18.0" prefWidth="521.0" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.SignUpPageController">
+   <children>
+      <AnchorPane fx:id="signupPage" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;">
+         <children>
+            <AnchorPane fx:id="whiteap" layoutX="25.0" layoutY="25.0" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+               <children>
+                  <ImageView fitHeight="453.0" fitWidth="300.0" layoutX="530.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/email.jpeg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <VBox alignment="CENTER" layoutX="59.0" layoutY="51.0" prefHeight="505.0" prefWidth="486.0" spacing="15" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10;">
+               <children>
+                  <Label text="Create Account" textFill="#281804">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="36.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtUsername" maxWidth="300" prefHeight="40.0" promptText="Enter Username" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtemail" maxWidth="300" prefHeight="40.0" promptText="Enter Email" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="txtPassword" maxWidth="300" prefHeight="40.0" promptText="Enter Password" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <PasswordField fx:id="txtConfirmPassword" maxWidth="300" prefHeight="40.0" promptText="Confirm Password" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <Button fx:id="btnSignUp" maxWidth="300" onAction="#btnSignUpOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Sign Up" textFill="#fff6f6">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label text="or" />
+                  <HBox prefHeight="40.0" prefWidth="459.0" spacing="10">
+                     <VBox.margin>
+                        <Insets left="105.0" right="100.0" />
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="btnGoogleSignup" mnemonicParsing="false" onAction="#handleGoogleSignup" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Sign up with Google">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="-30.0" />
+                           </padding>
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/google.jpeg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label onMouseClicked="#goToLogin" text="Already have an account? Login" textFill="#6969a9">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblMessage" prefHeight="18.0" prefWidth="197.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
