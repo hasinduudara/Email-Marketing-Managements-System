@@ -116,8 +116,8 @@ public class MailFilterDashboardController {
     }
 
     private void sendEmail(String toEmail, String subject, String body) {
-        final String username = "yourgmail@gmail.com";
-        final String password = "your-app-password";
+        final String username = "hasiduudara@gmail.com";
+        final String password = "wngszetdusifxysl"; // wngs zetd usif xysl
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
