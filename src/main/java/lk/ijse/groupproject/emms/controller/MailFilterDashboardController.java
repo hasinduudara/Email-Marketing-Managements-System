@@ -44,39 +44,90 @@ public class MailFilterDashboardController {
 
     @FXML
     void btnFilterOnaction(ActionEvent event) {
-        String namePart = txtName.getText();
+        String namePart = txtName.getText().trim();
         String gender = cmbGender.getValue();
-        String job = txtJob.getText();
-        int minAge = Integer.parseInt(txtMinAge.getText());
-        int maxAge = Integer.parseInt(txtMaxAge.getText());
+        String job = txtJob.getText().trim();
+        String minAgeStr = txtMinAge.getText().trim();
+        String maxAgeStr = txtMaxAge.getText().trim();
+
+        List<String> conditions = new ArrayList<>();
+        List<Object> parameters = new ArrayList<>();
+
+        if (!namePart.isEmpty()) {
+            conditions.add("clientName LIKE ?");
+            parameters.add(namePart + "%");
+        }
+
+        if (gender != null && !gender.isEmpty()) {
+            conditions.add("gender = ?");
+            parameters.add(gender);
+        }
+
+        if (!minAgeStr.isEmpty()) {
+            try {
+                parameters.add(Integer.parseInt(minAgeStr));
+                conditions.add("age >= ?");
+            } catch (NumberFormatException e) {
+                new Alert(Alert.AlertType.ERROR, "Invalid minimum age!").show();
+                return;
+            }
+        }
+
+        if (!maxAgeStr.isEmpty()) {
+            try {
+                parameters.add(Integer.parseInt(maxAgeStr));
+                conditions.add("age <= ?");
+            } catch (NumberFormatException e) {
+                new Alert(Alert.AlertType.ERROR, "Invalid maximum age!").show();
+                return;
+            }
+        }
+
+        if (!job.isEmpty()) {
+            conditions.add("job = ?");
+            parameters.add(job);
+        }
+
+        String whereClause = String.join(" AND ", conditions);
+        String sql = "SELECT * FROM emails";
+        if (!whereClause.isEmpty()) {
+            sql += " WHERE " + whereClause;
+        }
 
         filteredList.clear();
-        try (Connection con = DBConnection.getInstance().getConnection()) {
-            String sql = "SELECT * FROM emails WHERE clientName LIKE ? AND gender=? AND age BETWEEN ? AND ? AND job=?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, namePart + "%"); // e.g., 'Ha%' will match Hasindu, Harry
-            pst.setString(2, gender);
-            pst.setInt(3, minAge);
-            pst.setInt(4, maxAge);
-            pst.setString(5, job);
 
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                EmailModel email = new EmailModel(
-                        rs.getString("email"),
-                        rs.getString("clientName"),
-                        rs.getString("gender"),
-                        rs.getInt("age"),
-                        rs.getString("job")
-                );
-                filteredList.add(email);
+        try (
+                Connection con = DBConnection.getInstance().getConnection();
+                PreparedStatement pst = con.prepareStatement(sql)
+        ) {
+            for (int i = 0; i < parameters.size(); i++) {
+                pst.setObject(i + 1, parameters.get(i));
             }
+
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs.next()) {
+                    EmailModel email = new EmailModel(
+                            rs.getString("email"),
+                            rs.getString("clientName"),
+                            rs.getString("gender"),
+                            rs.getInt("age"),
+                            rs.getString("job")
+                    );
+                    filteredList.add(email);
+                }
+            }
+
             lstFilteredEmails.setItems(filteredList);
-        } catch (Exception e) {
+
+            if (filteredList.isEmpty()) {
+                new Alert(Alert.AlertType.INFORMATION, "No matching emails found.").show();
+            }
+
+        } catch (SQLException e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Database error: " + e.getMessage()).show();
         }
     }
-
 
     @FXML
     void btnSendOnAction(ActionEvent event) {
