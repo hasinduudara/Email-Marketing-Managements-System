@@ -6,12 +6,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import lk.ijse.groupproject.emms.db.DBConnection;
 import lk.ijse.groupproject.emms.model.EmailModel;
+import lk.ijse.groupproject.emms.util.PdfUtil;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 import java.sql.*;
 import java.util.List;
 import java.util.Properties;
@@ -79,11 +82,37 @@ public class MailFilterDashboardController {
         String title = txtTitle.getText();
         String body = txtBody.getText();
 
+        if (title.isEmpty() || body.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Title and Body are required!").show();
+            return;
+        }
+
         for (EmailModel emailModel : filteredList) {
             sendEmail(emailModel.getEmail(), title, body);
         }
 
-        new Alert(Alert.AlertType.INFORMATION, "Emails sent successfully!").show();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                "Emails sent successfully!\nDo you want to save this email as a PDF?",
+                ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Save as PDF?");
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.YES) {
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Save Email PDF");
+                fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+                File file = fileChooser.showSaveDialog(filterMailDashboard.getScene().getWindow());
+
+                if (file != null) {
+                    try {
+                        PdfUtil.saveEmailAsPDF(title, body, file.getAbsolutePath());
+                        new Alert(Alert.AlertType.INFORMATION, "PDF saved successfully!").show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        new Alert(Alert.AlertType.ERROR, "Failed to save PDF.").show();
+                    }
+                }
+            }
+        });
     }
 
     private void sendEmail(String toEmail, String subject, String body) {
