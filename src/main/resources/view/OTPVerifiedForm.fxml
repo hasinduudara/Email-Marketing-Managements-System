@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.OTPVerifiedFormController">
+   <children>
+      <AnchorPane fx:id="whiteap" layoutX="27.0" layoutY="29.0" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+         <children>
+            <ImageView fitHeight="297.0" fitWidth="266.0" layoutX="560.0" layoutY="170.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/otp-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnReset" layoutX="167.0" layoutY="470.0" onAction="#btnResetOnAction" prefHeight="20.0" prefWidth="250.0" style="-fx-background-color: black; -fx-border-color: black;" text="Reset Password" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Label fx:id="lblLogin" layoutX="156.0" layoutY="185.0" opacity="0.9" text="OTP Verified">
+         <font>
+            <Font name="System Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label layoutX="159.0" layoutY="258.0" opacity="0.8" style="-fx-text-fill: #2B2B2B;" text="Enter your new password to continue.">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="159.0" layoutY="310.0" opacity="0.8" style="-fx-text-fill: #2B2B2B;" text="New Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="159.0" layoutY="400.0" opacity="0.8" style="-fx-text-fill: #2B2B2B;" text="Confirm Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtConfirmPasswordVisible" layoutX="159.0" layoutY="428.0" prefHeight="46.0" prefWidth="389.0" style="-fx-background-radius: 20;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <PasswordField fx:id="txtConfirmPassword" layoutX="160.0" layoutY="428.0" prefHeight="46.0" prefWidth="389.0" style="-fx-background-radius: 16;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </PasswordField>
+      <ImageView fx:id="imgBack" fitHeight="58.0" fitWidth="58.0" layoutX="78.0" layoutY="56.0" onMouseClicked="#imgBackOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/backImg.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblError" layoutX="161.0" layoutY="584.0" prefHeight="18.0" prefWidth="521.0" />
+      <TextField fx:id="txtPasswordVisible" layoutX="159.0" layoutY="338.0" prefHeight="46.0" prefWidth="389.0" style="-fx-background-radius: 20;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <PasswordField fx:id="txtPassword" layoutX="160.0" layoutY="338.0" prefHeight="46.0" prefWidth="389.0" style="-fx-background-radius: 16;" />
+      <ImageView fx:id="imgPasswordView" fitHeight="29.0" fitWidth="29.0" layoutX="505.0" layoutY="345.0" onMouseClicked="#imgPasswordViewOnAction" opacity="0.86" pickOnBounds="true" preserveRatio="true">
+         <image>
+z            <Image url="@../assets/eyevisibleimg.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="imgConfirmPasswordView" fitHeight="29.0" fitWidth="29.0" layoutX="505.0" layoutY="436.0" onMouseClicked="#imgConfirmPasswordViewOnAction" opacity="0.86" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/eyevisibleimg.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

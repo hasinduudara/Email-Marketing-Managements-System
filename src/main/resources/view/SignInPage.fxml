@@ -66,6 +66,11 @@
                         <Button fx:id="btnGoogleSignin" layoutX="131.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleGoogleSignin" prefHeight="26.0" prefWidth="173.0" style="-fx-background-color: white; -fx-border-color: black;" text="Sign in with Google" />
                         <Label layoutX="210.0" layoutY="384.0" text="or" />
                         <Label fx:id="lblMessege" layoutX="134.0" layoutY="471.0" prefHeight="18.0" prefWidth="210.0" text="l" />
+                        <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="276.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/google.jpeg" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                   <ImageView fitHeight="498.0" fitWidth="291.0" layoutX="27.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">

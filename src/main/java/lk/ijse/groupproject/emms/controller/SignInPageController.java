@@ -1,4 +1,3 @@
-// File: src/main/java/lk/ijse/groupproject/emms/controller/SignInPageController.java
 package lk.ijse.groupproject.emms.controller;
 
 import javafx.animation.KeyFrame;
@@ -126,7 +125,7 @@ public class SignInPageController {
 
     @FXML
     void lblForgotPasswordOnAction(MouseEvent event) {
-        // loadUI("/view/ForgetPassword.fxml");
+        loadUI("/view/ForgetPassword.fxml");
     }
     @FXML
     void handleGoogleSignin(ActionEvent event) {
@@ -184,7 +183,7 @@ public class SignInPageController {
                 showSuccessMessage("Welcome back, " + userInfo.getName() + "!");
                 Timeline timeline = new Timeline(new KeyFrame(
                         Duration.seconds(1),
-                        ae -> loadUI("/com/example/emaillogin/dashboard.fxml")
+                        ae -> loadUI("lk/ijse/groupproject/emms/view/testDashboard.fxml")
                 ));
                 timeline.play();
             } else {
@@ -199,7 +198,7 @@ public class SignInPageController {
                     showSuccessMessage("Account created! Welcome, " + userInfo.getName() + "!");
                     Timeline timeline = new Timeline(new KeyFrame(
                             Duration.seconds(1),
-                            ae -> loadUI("/com/example/emaillogin/dashboard.fxml")
+                            ae -> loadUI("/lk/ijse/groupproject/emms/view/testDashboard.fxml")
                     ));
                     timeline.play();
                 } else {

@@ -56,7 +56,17 @@ public class UserModel {
             throw e;
         }
     }
+    public boolean isEmailExists(String email) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        String sql = "select email from user where email = ?";
 
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setString(1, email);
+
+        ResultSet rs = pst.executeQuery();
+
+        return rs.next();
+    }
     public static boolean validateUser(String username, String password) throws SQLException {
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
 

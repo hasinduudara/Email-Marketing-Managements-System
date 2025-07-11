@@ -63,13 +63,20 @@
                         <Insets left="105.0" right="100.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnGoogleSignup" mnemonicParsing="false" onAction="#handleGoogleSignup" prefHeight="35.0" prefWidth="135.0" style="-fx-background-color: white; -fx-border-color: black;" text="Sign up with Google">
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
+                        <Button fx:id="btnGoogleSignup" mnemonicParsing="false" onAction="#handleGoogleSignup" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Sign up with Google">
                            <HBox.margin>
-                              <Insets left="60.0" />
+                              <Insets left="40.0" />
                            </HBox.margin>
+                           <padding>
+                              <Insets left="-30.0" />
+                           </padding>
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/google.jpeg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
                      </children>
                   </HBox>
