@@ -32,6 +32,7 @@ public class MailFilterDashboardController {
     @FXML private TextField txtName;
     @FXML private Button btnFilter;
     @FXML private Button btnSend;
+    @FXML private Button btnClear;
     @FXML private ListView<EmailModel> lstFilteredEmails;
 
     private ObservableList<EmailModel> filteredList = FXCollections.observableArrayList();
@@ -143,5 +144,17 @@ public class MailFilterDashboardController {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    public void btnClearOnAction(ActionEvent actionEvent) {
+        txtName.clear();
+        cmbGender.getSelectionModel().clearSelection();
+        txtMinAge.clear();
+        txtMaxAge.clear();
+        txtJob.clear();
+        txtTitle.clear();
+        txtBody.clear();
+        filteredList.clear();
+        lstFilteredEmails.setItems(filteredList);
     }
 }

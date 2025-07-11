@@ -63,8 +63,15 @@
 
             <!-- Action Buttons -->
             <HBox alignment="CENTER" spacing="20">
-                <Button fx:id="btnFilter" onAction="#btnFilterOnaction" style="-fx-background-color: #03DAC6; -fx-text-fill: black; -fx-font-weight: bold;" text="Filter Contacts" />
-                <Button fx:id="btnSend" onAction="#btnSendOnAction" style="-fx-background-color: #BB86FC; -fx-text-fill: white; -fx-font-weight: bold;" text="Send Email" />
+                <Button fx:id="btnFilter" onAction="#btnFilterOnaction"
+                        style="-fx-background-color: #03DAC6; -fx-text-fill: black; -fx-font-weight: bold;"
+                        text="Filter Contacts" />
+                <Button fx:id="btnSend" onAction="#btnSendOnAction"
+                        style="-fx-background-color: #BB86FC; -fx-text-fill: white; -fx-font-weight: bold;"
+                        text="Send Email" />
+                <Button fx:id="btnClear" onAction="#btnClearOnAction"
+                        style="-fx-background-color: #FF6F61; -fx-text-fill: white; -fx-font-weight: bold;"
+                        text="Clear" />
             </HBox>
 
             <!-- Result Area -->
