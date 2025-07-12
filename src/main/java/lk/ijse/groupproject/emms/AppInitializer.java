@@ -13,7 +13,7 @@ import java.io.IOException;
 public class AppInitializer extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent load = FXMLLoader.load(getClass().getResource("/view/MailFilterDashboard.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml"));
 
         stage.setTitle("Stay Smart");
 

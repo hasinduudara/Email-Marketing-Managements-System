@@ -14,6 +14,7 @@ module lk.ijse.groupproject.emms {
 
     requires com.google.api.client.extensions.jetty.auth;
     requires com.google.api.client.extensions.java6.auth;
+    requires itextpdf;
 
 
     opens lk.ijse.groupproject.emms to javafx.fxml;

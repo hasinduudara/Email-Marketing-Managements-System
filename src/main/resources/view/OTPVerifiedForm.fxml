@@ -10,14 +10,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.OTPVerifiedFormController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.OTPVerifiedFormController">
    <children>
-      <AnchorPane fx:id="whiteap" layoutX="27.0" layoutY="29.0" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+      <AnchorPane fx:id="whiteap" layoutX="27.0" layoutY="29.0" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: white; -fx-background-radius: 25; -fx-border-color: #000000; -fx-border-radius: 25;">
          <children>
-            <ImageView fitHeight="297.0" fitWidth="266.0" layoutX="560.0" layoutY="170.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="297.0" fitWidth="266.0" layoutX="557.0" layoutY="142.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/otp-removebg-preview.png" />
+                  <Image url="@../assets/new%20password.jpg" />
                </image>
             </ImageView>
             <JFXButton fx:id="btnReset" layoutX="167.0" layoutY="470.0" onAction="#btnResetOnAction" prefHeight="20.0" prefWidth="250.0" style="-fx-background-color: black; -fx-border-color: black;" text="Reset Password" textFill="WHITE">
@@ -62,7 +61,7 @@
       </PasswordField>
       <ImageView fx:id="imgBack" fitHeight="58.0" fitWidth="58.0" layoutX="78.0" layoutY="56.0" onMouseClicked="#imgBackOnAction" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/backImg.png" />
+            <Image url="@../assets/back%20btn.png" />
          </image>
       </ImageView>
       <Label fx:id="lblError" layoutX="161.0" layoutY="584.0" prefHeight="18.0" prefWidth="521.0" />
@@ -74,7 +73,7 @@
       <PasswordField fx:id="txtPassword" layoutX="160.0" layoutY="338.0" prefHeight="46.0" prefWidth="389.0" style="-fx-background-radius: 16;" />
       <ImageView fx:id="imgPasswordView" fitHeight="29.0" fitWidth="29.0" layoutX="505.0" layoutY="345.0" onMouseClicked="#imgPasswordViewOnAction" opacity="0.86" pickOnBounds="true" preserveRatio="true">
          <image>
-z            <Image url="@../assets/eyevisibleimg.png" />
+            <Image url="@../assets/eye.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -82,7 +81,7 @@ z            <Image url="@../assets/eyevisibleimg.png" />
       </ImageView>
       <ImageView fx:id="imgConfirmPasswordView" fitHeight="29.0" fitWidth="29.0" layoutX="505.0" layoutY="436.0" onMouseClicked="#imgConfirmPasswordViewOnAction" opacity="0.86" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/eyevisibleimg.png" />
+            <Image url="@../assets/eye.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

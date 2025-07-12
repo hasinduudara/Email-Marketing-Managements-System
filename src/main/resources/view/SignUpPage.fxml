@@ -12,15 +12,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.SignUpPageController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.SignUpPageController">
    <children>
-      <AnchorPane fx:id="signupPage" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;">
+      <AnchorPane fx:id="signupPage" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="900.0">
          <children>
-            <AnchorPane fx:id="whiteap" layoutX="25.0" layoutY="25.0" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+            <AnchorPane fx:id="whiteap" layoutX="25.0" layoutY="25.0" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: white; -fx-background-radius: 25; -fx-border-color: #000000; -fx-border-radius: 25;">
                <children>
-                  <ImageView fitHeight="453.0" fitWidth="300.0" layoutX="530.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="453.0" fitWidth="300.0" layoutX="534.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/email.jpeg" />
+                        <Image url="@../assets/register.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -73,7 +73,7 @@
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/google.jpeg" />
+                                    <Image url="@../assets/google%20icon.png" />
                                  </image>
                               </ImageView>
                            </graphic>
