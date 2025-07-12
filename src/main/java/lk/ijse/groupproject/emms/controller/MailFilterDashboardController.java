@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -15,8 +16,11 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.io.IOException;
 import java.sql.*;
 import java.util.*;
+
+import javafx.scene.layout.BorderPane;
 
 public class MailFilterDashboardController {
 
@@ -36,6 +40,8 @@ public class MailFilterDashboardController {
     private TextArea txtBody;
     @FXML
     private TextField txtName;
+    @FXML
+    private Button btnBack;
     @FXML
     private Button btnFilter;
     @FXML
@@ -205,6 +211,14 @@ public class MailFilterDashboardController {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        filterMailDashboard.getChildren().clear();
+        BorderPane dashboardPage = FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"));
+        filterMailDashboard.getScene().setRoot(dashboardPage);
+
     }
 
     @FXML
