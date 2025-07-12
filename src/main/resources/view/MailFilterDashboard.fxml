@@ -10,17 +10,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="filterMailDashboard" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.MailFilterDashboardController">
 
-    <VBox alignment="TOP_CENTER" layoutX="50" layoutY="30" prefWidth="800" spacing="15.0">
+    <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="2.0" prefHeight="612.0" prefWidth="872.0" spacing="15.0">
         <children>
-
+      
             <!-- Title -->
-            <Label style="-fx-font-size: 24px; -fx-text-fill: #000000;" text="Email Filter &amp; Sender" />
+            <Label style="-fx-font-size: 24px; -fx-text-fill: #000000;" text="Email Filter &amp; Sender">
+            <font>
+               <Font name="System Bold" size="53.0" />
+            </font>
+         </Label>
 
             <!-- Filters -->
-            <HBox spacing="20">
+            <HBox spacing="50.0">
                 <children>
 
                     <VBox spacing="5">

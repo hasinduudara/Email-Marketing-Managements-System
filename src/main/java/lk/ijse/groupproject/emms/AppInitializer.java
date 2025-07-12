@@ -15,10 +15,10 @@ public class AppInitializer extends Application {
     public void start(Stage stage) throws IOException {
         Parent load = FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml"));
 
-        stage.setTitle("Stay Smart");
+        stage.setTitle("Email Marketing Management System");
 
         Scene scene = new Scene(new Group(load));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/test-img.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/logo icon.png")));
         stage.setScene(scene);
         stage.show();
     }

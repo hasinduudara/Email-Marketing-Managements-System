@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.EmailController">
+<BorderPane fx:id="dashboardPage" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.EmailController">
     <top>
         <VBox style="-fx-background-color: black; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
             <padding>

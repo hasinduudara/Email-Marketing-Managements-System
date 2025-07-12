@@ -78,7 +78,7 @@ public class SignInPageController {
             boolean valid = UserModel.validateUser(username, password);
             if (valid) {
                 showAlert("Success", "Login successful!", Alert.AlertType.INFORMATION);
-                loadUI("/view/testDashboard.fxml");
+                loadUI("/view/Dashboard.fxml");
             } else {
                 showAlert("Error", "Invalid username or password!", Alert.AlertType.ERROR);
             }
@@ -183,7 +183,7 @@ public class SignInPageController {
                 showSuccessMessage("Welcome back, " + userInfo.getName() + "!");
                 Timeline timeline = new Timeline(new KeyFrame(
                         Duration.seconds(1),
-                        ae -> loadUI("lk/ijse/groupproject/emms/view/testDashboard.fxml")
+                        ae -> loadUI("/view/Dashboard.fxml")
                 ));
                 timeline.play();
             } else {
@@ -198,7 +198,7 @@ public class SignInPageController {
                     showSuccessMessage("Account created! Welcome, " + userInfo.getName() + "!");
                     Timeline timeline = new Timeline(new KeyFrame(
                             Duration.seconds(1),
-                            ae -> loadUI("/lk/ijse/groupproject/emms/view/testDashboard.fxml")
+                            ae -> loadUI("/view/Dashboard.fxml")
                     ));
                     timeline.play();
                 } else {

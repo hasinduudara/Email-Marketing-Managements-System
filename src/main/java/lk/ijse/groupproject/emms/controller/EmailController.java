@@ -3,17 +3,24 @@ package lk.ijse.groupproject.emms.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import lk.ijse.groupproject.emms.dto.EmailDTO;
 import lk.ijse.groupproject.emms.dto.tm.EmailTM;
 import lk.ijse.groupproject.emms.model.EmailModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
 public class EmailController implements Initializable {
+
+    @FXML
+    private BorderPane dashboardPage;
 
     @FXML
     private TextField emailField;
@@ -241,8 +248,10 @@ public class EmailController implements Initializable {
     }
 
     @FXML
-    private void handleSendMail() {
-       // ......
+    private void handleSendMail() throws IOException {
+        dashboardPage.getChildren().clear();
+        AnchorPane newPage = FXMLLoader.load(getClass().getResource("/view/MailFilterDashboard.fxml"));
+        dashboardPage.getChildren().add(newPage);
     }
 
     @FXML
