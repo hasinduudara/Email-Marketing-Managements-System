@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.groupproject.emms.controller.SignInPageController">
    <children>
-      <AnchorPane fx:id="loginPage" layoutX="5.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
+      <AnchorPane fx:id="loginPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
          <children>
             <AnchorPane fx:id="whiteap" layoutX="20.0" layoutY="25.0" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: white; -fx-background-radius: 25; -fx-border-color: #000000; -fx-border-radius: 25;">
                <children>
